@@ -71,7 +71,9 @@ public class ZKManager {
                 }
             });
 
-            zkServerThread.setDaemon(true);
+            // Do NOT set zkServerThread as daemon thread. Or else, it won't be terminated
+            // when enclosing app terminates
+
             zkServerThread.start();
         }
 
