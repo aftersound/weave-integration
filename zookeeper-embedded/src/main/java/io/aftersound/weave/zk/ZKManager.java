@@ -90,6 +90,10 @@ public class ZKManager {
     }
 
     private boolean isTargetServer(String hostAddress, String hostName, ZKServer zkServer) {
+        if ("0.0.0.0".equals(zkServer.getHost())) {
+            return true;
+        }
+
         if (zkServer.getHost().equals(hostAddress)) {
             return true;
         }
